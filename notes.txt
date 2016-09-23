@@ -1,0 +1,7 @@
+https://orrsella.com/2013/08/10/git-using-different-user-emails-for-different-repositories/
+
+# Configured git to require email per repository.
+
+git config --global user.useConfigOnly true
+git config --global --unset-all user.email
+
