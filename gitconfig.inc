@@ -2,14 +2,19 @@
 	excludesfile = /Users/abhishekm/.gitignore_global
 	page = more
 	pager = less -FRSX
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+# [difftool "sourcetree"]
+#	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+#	path = 
+# [mergetool "sourcetree"]
+#	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+#	trustExitCode = true
 [format]
     pretty = format:"%C(auto,yellow)commit %H%C(auto,reset)\nAuthor: %an <%ae>\nDate:   %cd\n\n%w(0,4,4)%B"
+
+[diff]
+    tool = diffcode
+[difftool "diffcode"]
+    cmd = code --diff $LOCAL $REMOTE
 
 [log]
     date = local
