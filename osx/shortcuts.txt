@@ -1,0 +1,5 @@
+# Speak
+
+osascript  -e 'say "what are you doing" using "alex"'
+
+
