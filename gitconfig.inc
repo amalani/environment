@@ -39,6 +39,6 @@
     # if I merely need to modify the previous commit, I’ll use git amend
     amend = commit -a --amend
     lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an, %ae>%Creset' --abbrev-commit --date=relative -n 20 
-    lga = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative -n 20 --author abhishekm
+    lga = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative -n 20 --author="Abhishek"
 
     epoch = !date +%s | pbcopy
