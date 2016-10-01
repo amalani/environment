@@ -9,7 +9,7 @@
 #	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 #	trustExitCode = true
 [format]
-    pretty = format:"%C(auto,yellow)commit %H%C(auto,reset)\nAuthor: %an <%ae>\nDate:   %cd\n\n%w(0,4,4)%B"
+    pretty = format:"%C(auto,red)%H %C(bold blue)<%an, %ae> \n%C(bold blue)%cd\n\n%w(0,4,4)%B"
 
 [diff]
     tool = diffcode
@@ -36,9 +36,9 @@
     # When I return to work, I’ll just use git undo which resets the previous commit, but keeps all the changes from that commit in the working directory.
     undoblah = reset HEAD~1 --mixed
 
-    # sOr, if I merely need to modify the previous commit, I’ll use git amend
+    # if I merely need to modify the previous commit, I’ll use git amend
     amend = commit -a --amend
-    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 20 
-    lga = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative -n 20 --author abhishekm
+    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an, %ae>%Creset' --abbrev-commit --date=relative -n 20 
+    lga = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative -n 20 --author abhishekm
 
     epoch = !date +%s | pbcopy
