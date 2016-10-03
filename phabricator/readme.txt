@@ -3,7 +3,7 @@ This scripts in this folder work in conjunction with the Tampermonkey extension 
 1. Install the extension
 2. Click on the extension icon -> click the new script icon
 3. Copy paste the contents of the script
-4. Update the @match url in the script to wherever your phabricator instance is.
+4. Update the @match url in the script to wherever your phabricator instance is hosted.
    For example, if phabricator works at https://secure.phabricator.com, you'll want to change the line to:
 
        @match        https://secure.phabricator.com/*
