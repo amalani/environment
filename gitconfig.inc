@@ -29,6 +29,8 @@
     cm = !git add -A && git commit -m # commit with message
     save = !git add -A && git commit -m 'SAVEPOINT'
     cma = !git commit --amend # amend commit
+    # git co master, git fetch origin/master, git rebase origin/master, git co <branch>
+    cmr = !git fetch origin master:master
 
     undocm = !git reset HEAD~ --soft # Undo the last commit but leave the changes
     
