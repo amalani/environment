@@ -1,7 +1,7 @@
 [core]
-	excludesfile = /Users/abhishekm/.gitignore_global
-	page = more
-	pager = less -FRSX
+    excludesfile = /Users/abhishekm/.gitignore_global
+    page = more
+    pager = less -FRSX
 # [difftool "sourcetree"]
 #	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 #	path = 
@@ -24,14 +24,14 @@
     st = status
     co = checkout
     grepall = !git grep # root directory grep
-    ec = !atom ~/.gitconfig # config --global -e # edit config file (open config file)
+    ec = !$EDITOR ~/.gitconfig # config --global -e # edit config file (open config file)
     cob = checkout -b # checkout branch <>
     cm = !git add -A && git commit -m # commit with message
     save = !git add -A && git commit -m 'SAVEPOINT'
     cma = !git commit --amend # amend commit
     # git co master, git fetch origin/master, git rebase origin/master, git co <branch>
     cmr = !git fetch origin master:master
-
+    opene = !code $(git status --porcelain --short | awk '{print $2}')
     undocm = !git reset HEAD~ --soft # Undo the last commit but leave the changes
     
     # http://haacked.com/archive/2014/07/28/github-flow-aliases/
