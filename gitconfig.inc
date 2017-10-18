@@ -17,7 +17,7 @@
     cmd = code --diff $LOCAL $REMOTE
 
 [log]
-    date = local
+#    date=format:%Y-%m-%d %H:%M:%S
 
 [alias]
     br = branch
@@ -40,7 +40,7 @@
 
     # if I merely need to modify the previous commit, I’ll use git amend
     amend = commit -a --amend
-    lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an, %ae>%Creset' --abbrev-commit --date=relative -n 20 
-    lga = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)' --abbrev-commit --date=relative -n 20 --author="Abhishek"
+    lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold blue)<%an, %ae>%Creset%Cgreen(%cd)' --abbrev-commit -n 20 --date=local 
+    lga = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s%Cgreen(%cd)' --abbrev-commit -n 20 --author="Abhishek" --date=local
 
     epoch = !date +%s | pbcopy
