@@ -19,6 +19,9 @@
 [log]
 #    date=format:%Y-%m-%d %H:%M:%S
 
+[fetch]
+prune = true
+
 [alias]
     br = branch
     st = status
@@ -44,3 +47,26 @@
     lga = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s%Cgreen(%cd)' --abbrev-commit -n 20 --author="Abhishek" --date=local
 
     epoch = !date +%s | pbcopy
+
+    # https://stackoverflow.com/questions/20808892/git-diff-between-current-branch-and-master-but-not-including-unmerged-master-com
+    dm = !git diff master...
+
+    ir = !git rebase -i origin/master
+    # Once your branch is several commits deep, you will often want to check what it looks like when compared to the revision at which you branched off of master:
+    diff-vs-master = !git diff "$@" $(git merge-base HEAD origin/master) -- .
+
+
+    # A quick summary showing one commit per line
+    # l = log -10 --graph --pretty=oneline --abbrev-commit --decorate=short
+
+    # shows date, author, hash, summary in a compact format
+    l = log -10 --format='%C(magenta)%cd%Creset %Cblue%<(15,trunc)%ae%Creset %C(yellow)%h%Creset %s' --date=short
+    la = log --format='%C(magenta)%cd%Creset %Cblue%<(15,trunc)%ae%Creset %C(yellow)%h%Creset %s' --date=short
+
+    # branch
+    brm = branch -m
+    brv = branch -vv   # like "ls -l"
+    cpb = "! cpb() { if [[ $2 ]]; then git branch -t $2 $1; else git branch -t $1; fi; }; cpb"
+
+    # unstage file
+    unstage = reset HEAD --

@@ -5,3 +5,5 @@ https://orrsella.com/2013/08/10/git-using-different-user-emails-for-different-re
 git config --global user.useConfigOnly true
 git config --global --unset-all user.email
 
+
+git config --local user.email "abhishekm@dropbox.com"
