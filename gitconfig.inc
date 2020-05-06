@@ -1,5 +1,6 @@
 [core]
     excludesfile = /Users/abhishekm/.gitignore_global
+	editor = code --wait
     page = more
     pager = less -FRSX
 # [difftool "sourcetree"]
@@ -11,10 +12,21 @@
 [format]
     pretty = format:"%C(auto,red)%H %C(bold blue)<%an, %ae> \n%C(bold blue)%cd\n\n%w(0,4,4)%B"
 
+# [diff]
+#     tool = diffcode
+#[difftool "diffcode"]
+#    cmd = code --diff $LOCAL $REMOTE
+
 [diff]
-    tool = diffcode
-[difftool "diffcode"]
-    cmd = code --diff $LOCAL $REMOTE
+	tool = bc3
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[branch]
+	autosetupmerge = always
+[merge]
+	tool = bc3
+[mergetool "bc3"]
+	trustExitCode = true
 
 [log]
 #    date=format:%Y-%m-%d %H:%M:%S
@@ -44,7 +56,7 @@ prune = true
     # if I merely need to modify the previous commit, I’ll use git amend
     amend = commit -a --amend
     lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold blue)<%an, %ae>%Creset%Cgreen(%cd)' --abbrev-commit -n 20 --date=local 
-    lga = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s%Cgreen(%cd)' --abbrev-commit -n 20 --author="Abhishek" --date=local
+    lga = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s%Cgreen(%cd)' --abbrev-commit -n 20 --author="abhishekm" --date=local
 
     epoch = !date +%s | pbcopy
 
@@ -70,3 +82,4 @@ prune = true
 
     # unstage file
     unstage = reset HEAD --
+    unstage-all = restore --staged .
