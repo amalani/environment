@@ -57,6 +57,7 @@ prune = true
     amend = commit -a --amend
     lg = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %C(bold blue)<%an, %ae>%Creset%Cgreen(%cd)' --abbrev-commit -n 20 --date=local 
     lga = log --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s%Cgreen(%cd)' --abbrev-commit -n 20 --author="abhishekm" --date=local
+    lgga = log --graph --author=abhishekm 
 
     epoch = !date +%s | pbcopy
 
@@ -83,3 +84,8 @@ prune = true
     # unstage file
     unstage = reset HEAD --
     unstage-all = restore --staged .
+
+
+    ## Git - show list of files in commit
+    # https://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit
+
