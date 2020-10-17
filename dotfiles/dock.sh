@@ -9,9 +9,11 @@ add_spacer() {
 # Remove all apps from the dock
 defaults write com.apple.dock persistent-apps -array ""
 
-# Animation
+# Look and feel
 defaults write com.apple.dock expose-animation-duration -float 0.2
 defaults write com.apple.dock autohide-time-modifier -float 0.1
+defaults write com.apple.dock mineeffect -string scale
+defaults write com.apple.dock tilesize -integer 46
 
 # Add Chrome to dock
 # defaults write com.apple.dock persistent-apps -array-add '<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>/Applications/Google Chrome.app</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>'
@@ -27,7 +29,7 @@ add_to_dock '/Applications/GitHub Desktop.app'
 add_to_dock '/Applications/PyCharm.app'
 add_to_dock '/Applications/Visual Studio Code.app'
 add_spacer
-add_to_dock '/Applications/Mailspring.app'
+# add_to_dock '/Applications/Mailspring.app'
 add_to_dock '/Applications/Microsoft To Do.app'
 add_to_dock '/Applications/Reeder.app'
 add_to_dock '/Applications/Notion.app'

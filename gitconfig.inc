@@ -64,10 +64,13 @@ prune = true
     # https://stackoverflow.com/questions/20808892/git-diff-between-current-branch-and-master-but-not-including-unmerged-master-com
     dm = !git diff master...
 
+    # rebase
     ir = !git rebase -i origin/master
+    rc = !git rebase --continue
+    ra = !git rebase --abort
+
     # Once your branch is several commits deep, you will often want to check what it looks like when compared to the revision at which you branched off of master:
     diff-vs-master = !git diff "$@" $(git merge-base HEAD origin/master) -- .
-
 
     # A quick summary showing one commit per line
     # l = log -10 --graph --pretty=oneline --abbrev-commit --decorate=short
