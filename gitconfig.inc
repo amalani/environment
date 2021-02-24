@@ -3,32 +3,53 @@
 	editor = code --wait
     page = more
     pager = less -FRSX
+
+[branch]
+	autosetupmerge = always
+
+[format]
+    pretty = format:"%C(auto,red)%H %C(bold blue)<%an, %ae> \n%C(bold blue)%cd\n\n%w(0,4,4)%B"
+
 # [difftool "sourcetree"]
 #	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 #	path = 
 # [mergetool "sourcetree"]
 #	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 #	trustExitCode = true
-[format]
-    pretty = format:"%C(auto,red)%H %C(bold blue)<%an, %ae> \n%C(bold blue)%cd\n\n%w(0,4,4)%B"
 
 # [diff]
 #     tool = diffcode
-#[difftool "diffcode"]
+# [difftool "diffcode"]
 #    cmd = code --diff $LOCAL $REMOTE
 
 [diff]
-	tool = bc3
-[difftool "diffmerge"]
-	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
-[branch]
-	autosetupmerge = always
+	tool = code
+[difftool "code"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
 	tool = bc3
 [mergetool "bc3"]
 	trustExitCode = true
+# [merge]
+#     tool = vscode
+# [mergetool "vscode"]
+#     cmd = code --wait $MERGED
 
-[log]
+# [diff]
+# 	tool = bc3
+# [difftool "diffmerge"]
+# 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+# [merge]
+#	tool = diffmerge
+#[mergetool "diffmerge"]
+#	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+#	trustExitCode = true
+
+[format]
+    pretty = format:"%C(auto,red)%H %C(bold blue)<%an, %ae> \n%C(bold blue)%cd\n\n%w(0,4,4)%B"
+
+
+# [log]
 #    date=format:%Y-%m-%d %H:%M:%S
 
 [fetch]
@@ -91,4 +112,3 @@ prune = true
 
     ## Git - show list of files in commit
     # https://stackoverflow.com/questions/424071/how-to-list-all-the-files-in-a-commit
-
