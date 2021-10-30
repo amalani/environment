@@ -1,0 +1,22 @@
+
+
+https://lifehacker.com/how-to-download-and-install-older-macos-versions-with-t-1839671161#:~:text=Type%20one%20of%20the%20following%20commands%20into%20Terminal%3A,%E2%80%94fetch-full-installer%20%5Bbuild%20number%5D%20%28for%20example%3A%20%E2%80%9Csoftwareupdate%20%E2%80%94fetch-full-installer%2010.14.5%22%29
+
+
+> softwareupdate —list-full-installer
+
+Finding available software
+Software Update found the following full installers:
+* Title: macOS Monterey, Version: 12.0.1, Size: 12128428704K, Build: 21A559
+* Title: macOS Big Sur, Version: 11.6.1, Size: 12428472512K, Build: 20G224
+* Title: macOS Big Sur, Version: 11.6, Size: 12428553042K, Build: 20G165
+* Title: macOS Big Sur, Version: 11.5.2, Size: 12440916552K, Build: 20G95
+* Title: macOS Big Sur, Version: 11.5.1, Size: 12440158909K, Build: 20G80
+* Title: macOS Catalina, Version: 10.15.7, Size: 8248985973K, Build: 19H15
+* Title: macOS Catalina, Version: 10.15.7, Size: 8248854894K, Build: 19H2
+* Title: macOS Catalina, Version: 10.15.6, Size: 8248781171K, Build: 19G2021
+
+> softwareupdate —fetch-full-installer <>
+
+
+File is saved to Applications folder
