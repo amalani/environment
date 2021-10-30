@@ -20,3 +20,9 @@ Software Update found the following full installers:
 
 
 File is saved to Applications folder
+
+
+
+// Other places
+https://github.com/munki/macadmin-scripts/blob/main/installinstallmacos.py
+https://github.com/scriptingosx/fetch-installer-pkg
