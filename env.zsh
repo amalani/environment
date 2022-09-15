@@ -12,6 +12,7 @@ alias epoch='date +%s | pbcopy'
 # Exa
 alias ll='exa --long'
 alias db="cd ~/src/server"
+alias dl="cd ~/Downloads"
 
 
 export PATH="$HOME/.npm-packages/bin:$PATH"
