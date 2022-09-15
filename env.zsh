@@ -14,6 +14,10 @@ alias ll='exa --long'
 alias db="cd ~/src/server"
 alias dl="cd ~/Downloads"
 
+if [[ -s "${ZDOTDIR:-$HOME}/Abhishek/github/db/env.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/Abhishek/github/db/env.zsh"
+fi
+
 
 export PATH="$HOME/.npm-packages/bin:$PATH"
 export PATH="$HOME/node_modules/bin:$PATH"
