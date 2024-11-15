@@ -5,7 +5,7 @@
     pager = less -FRSX
 
 [branch]
-	autosetupmerge = always
+	# autosetupmerge = always
 
 [format]
     pretty = format:"%C(auto,red)%H %C(bold blue)<%an, %ae> \n%C(bold blue)%cd\n\n%w(0,4,4)%B"

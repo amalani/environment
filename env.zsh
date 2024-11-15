@@ -44,10 +44,10 @@ function ssh-add_wf ()
 # Using ssh-add_wf seems useless and slow for each key but ssh-add -A is noisy. Try to use mixed approach for first run per restart
 if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519" ]]; then
     # work laptop
-    ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add -A
+    ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add -apple-load-keychain
 else
     # personal laptop
-    ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -A
+    ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -apple-load-keychain
 fi
 
 # https://coderwall.com/p/pb1uzq/z-shell-colors
