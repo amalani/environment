@@ -54,6 +54,10 @@ fi
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
 # source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# source ~/.bashrc
+autoload -U compinit && compinit
+eval "$(register-python-argcomplete pipx)"
+
 ## colors
 # function clicolors() {
 #     i=1
