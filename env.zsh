@@ -41,14 +41,71 @@ function ssh-add_wf ()
     done < <(ssh-add -l | awk '{print $2}')
 }
 
-# Using ssh-add_wf seems useless and slow for each key but ssh-add -A is noisy. Try to use mixed approach for first run per restart
-if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519" ]]; then
-    # work laptop
-    ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add -apple-load-keychain
+# MacOS Version based commands
+os_type=$(uname -s)
+
+if [[ "$os_type" == "Darwin" ]]; then
+    # Get the macOS version
+    macos_version=$(sw_vers -productVersion | awk -F '.' '{print $1}')
+    
+    if [[ "$macos_version" == "15" ]]; then
+        # Using ssh-add_wf seems useless and slow for each key but ssh-add -A is noisy. Try to use mixed approach for first run per restart
+        if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519_dbx_github" ]]; then
+            # work laptop
+            ssh-add_wf | grep -q ~/.ssh/id_ed25519_dbx_github || ssh-add -apple-load-keychain
+        fi
+
+        if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519" ]]; then
+            ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add -apple-load-keychain
+        fi
+
+        if [[ -s "${ZDOTDIR:-$HOME}/.ssh/github_rsa" ]]; then
+            ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -apple-load-keychain
+        fi
+    else
+        if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519_dbx_github" ]]; then
+            # work laptop
+            ssh-add_wf | grep -q ~/.ssh/id_ed25519_dbx_github || ssh-add -A
+        fi
+
+        if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519" ]]; then
+            ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add -A
+        fi
+
+        if [[ -s "${ZDOTDIR:-$HOME}/.ssh/github_rsa" ]]; then
+            ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -A
+        fi
+    fi
 else
-    # personal laptop
-    ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -apple-load-keychain
+    echo "This is not macOS."
 fi
+
+
+# elif [[ "$macos_version" == "15" ]]; then
+#     echo "Running commands for macOS 15..."
+#     # Place commands for macOS 15 here
+
+
+
+# # Using ssh-add_wf seems useless and slow for each key but ssh-add -A is noisy. Try to use mixed approach for first run per restart
+# if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519" ]]; then
+#     # work laptop
+#     ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add -apple-load-keychain
+# else
+#     # personal laptop
+#     ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -apple-load-keychain
+# fi
+
+# # Using ssh-add_wf seems useless and slow for each key but ssh-add -A is noisy. Try to use mixed approach for first run per restart
+# if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519_dbx_github" ]]; then
+#     # work laptop
+#     ssh-add_wf | grep -q ~/.ssh/id_ed25519_dbx_github || ssh-add -apple-load-keychain
+# fi
+# else
+#     # personal laptop
+#     ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -apple-load-keychain
+# fi
+
 
 # https://coderwall.com/p/pb1uzq/z-shell-colors
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=245"
