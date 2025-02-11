@@ -52,15 +52,15 @@ if [[ "$os_type" == "Darwin" ]]; then
         # Using ssh-add_wf seems useless and slow for each key but ssh-add -A is noisy. Try to use mixed approach for first run per restart
         if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519_dbx_github" ]]; then
             # work laptop
-            ssh-add_wf | grep -q ~/.ssh/id_ed25519_dbx_github || ssh-add -apple-load-keychain
+            ssh-add_wf | grep -q ~/.ssh/id_ed25519_dbx_github || ssh-add --apple-load-keychain
         fi
 
         if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519" ]]; then
-            ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add -apple-load-keychain
+            ssh-add_wf | grep -q ~/.ssh/id_ed25519 || ssh-add --apple-load-keychain
         fi
 
         if [[ -s "${ZDOTDIR:-$HOME}/.ssh/github_rsa" ]]; then
-            ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add -apple-load-keychain
+            ssh-add_wf | grep -q ~/.ssh/github_rsa || ssh-add --apple-load-keychain
         fi
     else
         if [[ -s "${ZDOTDIR:-$HOME}/.ssh/id_ed25519_dbx_github" ]]; then
